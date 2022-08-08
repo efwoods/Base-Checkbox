@@ -24,6 +24,21 @@ Reusable Checkbox Component
       }
 ```
 
+
+```
+<template>
+  <input
+    type="checkbox" // inputs with this type don't trigger @input events
+    :checked="modelValue" // model is bound on checked property rather than value
+    @change="$emit('update:modelValue', $event.target.checked)" 
+      // change events are triggered (when using selected and onSelected)
+      // $event.target.checked is the value of the checked status, ":checked"
+    class="field"
+  />
+  <label v-if="label">{{ label }}</label>
+</template>
+```
+
 ## Prerequisites
 None
 
